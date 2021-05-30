@@ -1,11 +1,13 @@
 package models;
 
+import java.util.ArrayList;
+
 public class StudentRecord extends Record {
-    String coursesRegistered;
+    ArrayList<String> coursesRegistered;
     String status;
     String statusDate;
 
-    public StudentRecord(String firstName, String lastName, String coursesRegistered, String status, String statusDate) {
+    public StudentRecord(String firstName, String lastName, ArrayList<String> coursesRegistered, String status, String statusDate) {
         super("SR" + Record.recordCounter, firstName, lastName);
         this.coursesRegistered = coursesRegistered;
         this.status = status;
@@ -14,7 +16,7 @@ public class StudentRecord extends Record {
 
     }
 
-    public String getCoursesRegistered() {
+    public ArrayList<String> getCoursesRegistered() {
         return coursesRegistered;
     }
 
@@ -27,7 +29,7 @@ public class StudentRecord extends Record {
         return statusDate;
     }
 
-    public void setCoursesRegistered(String coursesRegistered) {
+    public void setCoursesRegistered(ArrayList<String> coursesRegistered) {
         this.coursesRegistered = coursesRegistered;
 
     }

@@ -18,7 +18,7 @@ public class RecordHelper {
         recordList.add(newRecord);
     }
 
-    public static void createSRecord(String firstName, String lastName, String courseRegistered, String status, String statusDate, HashMap<Character, ArrayList<Record>> records) {
+    public static void createSRecord(String firstName, String lastName, ArrayList<String> courseRegistered, String status, String statusDate, HashMap<Character, ArrayList<Record>> records) {
         ArrayList<Record> recordList = records.get(getFirstLetter(lastName));
         Record newRecord = new StudentRecord(firstName, lastName, courseRegistered, status, statusDate);
         recordList.add(newRecord);
