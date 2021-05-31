@@ -2,14 +2,14 @@ package models;
 
 public class TeacherRecord extends Record {
     String address;
-    long phoneNo;
+    long phone;
     String specialization;
     String location;
 
     public TeacherRecord(String firstName, String lastName, String address, long phoneNo, String specialization, String location) {
         super("TR" + Record.recordCounter, firstName, lastName);
         this.address = address;
-        this.phoneNo = phoneNo;
+        this.phone = phoneNo;
         this.specialization = specialization;
         this.location = location;
         Record.recordCounter++;
@@ -20,7 +20,7 @@ public class TeacherRecord extends Record {
     }
 
     public long getPhoneNo() {
-        return phoneNo;
+        return phone;
     }
 
     public String getSpecialization() {
@@ -37,7 +37,7 @@ public class TeacherRecord extends Record {
     }
 
     public void setPhoneNo(long phoneNo) {
-        this.phoneNo = phoneNo;
+        this.phone = phoneNo;
 
     }
 

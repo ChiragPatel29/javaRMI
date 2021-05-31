@@ -3,10 +3,12 @@ package server;
 import models.Record;
 import models.StudentRecord;
 import models.TeacherRecord;
+import recordutils.RecordHelper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CenterServerC implements CenterServerI {
     HashMap<Character, ArrayList<Record>> records = new HashMap<>();
@@ -43,12 +45,13 @@ public class CenterServerC implements CenterServerI {
         if (records.get(key) == null) {
             System.out.println("New List of Records is created");
             ArrayList<Record> newList = new ArrayList<Record>();
+            newList.add(teacherRecord);
             records.put(key, newList);
             return "Record Added successfully";
 
         } else {
             System.out.println("Value will be added in existing list of records");
-            ArrayList<Record> existingList = new ArrayList<Record>();
+            ArrayList<Record> existingList = records.get(key);
             existingList.add(teacherRecord);
             return "Record Added Successfully";
         }
@@ -59,18 +62,19 @@ public class CenterServerC implements CenterServerI {
     }
 
     @Override
-    public String createSRecord(String firstName, String lastName, ArrayList<String> courseRegistered, String status, String statusDate) throws RemoteException {
+    public String createSRecord(String firstName, String lastName, List<String> courseRegistered, String status, String statusDate) throws RemoteException {
         StudentRecord studentRecord = new StudentRecord(firstName, lastName, courseRegistered, status, statusDate);
         Character key = lastName.toUpperCase().charAt(0);
         if (records.get(key) == null) {
             System.out.println("New List of Records is created");
             ArrayList<Record> newList = new ArrayList<Record>();
+            newList.add(studentRecord);
             records.put(key, newList);
             return "Record Added successfully";
 
         } else {
             System.out.println("Value will be added in existing list of records");
-            ArrayList<Record> existingList = new ArrayList<Record>();
+            ArrayList<Record> existingList = records.get(key);
             existingList.add(studentRecord);
             return "Record Added Successfully";
         }
@@ -109,7 +113,7 @@ public class CenterServerC implements CenterServerI {
         return "No such record found";
     }
 
-    public String editStudentRecord(String recordID, String fieldName, ArrayList<String> newValue) {
+    public String editStudentRecord(String recordID, String fieldName, List<String> newValue) {
 
         for (Character crecord : records.keySet()) {
             ArrayList<Record> krecord = records.get(crecord);
@@ -119,7 +123,7 @@ public class CenterServerC implements CenterServerI {
                     if (fieldName.equals("status")) {
                         studentRecord.setStatus(newValue.get(0));
                         return "Value edited successfully";
-                    } else if (fieldName.equals("phone")) {
+                    } else if (fieldName.equals("statusDate")) {
                         studentRecord.setStatusDate(newValue.get(0));
                         return "Value edited successfully";
                     } else if (fieldName.equals("courseRegistered")) {
@@ -137,12 +141,27 @@ public class CenterServerC implements CenterServerI {
 
 
     @Override
-    public String editRecord(String recordID, String fieldName, ArrayList<String> newValue) throws RemoteException {
+    public String editRecord(String recordID, String fieldName, List<String> newValue) throws RemoteException {
         String recordType = recordID.substring(0, 2);
         if (recordType.equals("TR"))
             return editTeacherRecord(recordID, fieldName, newValue.get(0));
         else
             return editStudentRecord(recordID, fieldName, newValue);
+    }
+
+    public void printRecords() {
+        for (Character crecord : records.keySet()) {
+            ArrayList<Record> krecord = records.get(crecord);
+            for (Record record : krecord) {
+                System.out.println(record.recordID + " " + record.firstName + " " + record.lastName);
+                if (record.recordID.substring(0, 2).equals("TR")) {
+                    RecordHelper.printTeacherRecord((TeacherRecord) record);
+                } else {
+                    RecordHelper.printStudentRecord((StudentRecord) record);
+                }
+
+            }
+        }
     }
 
 }

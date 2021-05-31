@@ -32,7 +32,7 @@ public class RecordHelper {
     }
 
     public static void printStudentRecord(StudentRecord studentRecord) {
-        System.out.println(studentRecord.getStatus()+" "+studentRecord.getCoursesRegistered()+" "+studentRecord.getStatusDate());
+        System.out.println(studentRecord.getStatus() + " " + studentRecord.getCoursesRegistered() + " " + studentRecord.getStatusDate());
     }
 
     public static void printRecords(HashMap<Character, ArrayList<Record>> records) {
