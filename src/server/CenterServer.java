@@ -4,19 +4,31 @@ import models.Record;
 import models.StudentRecord;
 import models.TeacherRecord;
 import recordutils.RecordHelper;
+import utilities.ServerLogger;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
 
-public class CenterServer extends UnicastRemoteObject implements CenterServerI{
+public class CenterServer extends UnicastRemoteObject implements CenterServerI {
     HashMap<Character, ArrayList<Record>> records = new HashMap<>();
+    ServerLogger serverLogger;
+    String serverName;
 
     public CenterServer() throws RemoteException {
         super();
     }
+
+    public CenterServer(String serverName) throws IOException {
+        super();
+        this.serverName = serverName;
+        serverLogger = new ServerLogger(serverName);
+    }
+
 
     public String checkMissingValuesForTeacher(String firstName, String lastName, String address, String phone, String specialization, String location) {
         if (firstName.isBlank())
@@ -52,12 +64,14 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI{
             ArrayList<Record> newList = new ArrayList<Record>();
             newList.add(teacherRecord);
             records.put(key, newList);
+            serverLogger.logger.log(Level.INFO,"Record Added with Last Name:"+lastName+" successfully");
             return "Record Added successfully";
 
         } else {
             System.out.println("Value will be added in existing list of records");
             ArrayList<Record> existingList = records.get(key);
             existingList.add(teacherRecord);
+            serverLogger.logger.log(Level.INFO,"Record Added with Last Name:"+lastName+" successfully");
             return "Record Added Successfully";
         }
 
@@ -75,12 +89,14 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI{
             ArrayList<Record> newList = new ArrayList<Record>();
             newList.add(studentRecord);
             records.put(key, newList);
+            serverLogger.logger.log(Level.INFO,"Record Added with Last Name:"+lastName+" successfully");
             return "Record Added successfully";
 
         } else {
             System.out.println("Value will be added in existing list of records");
             ArrayList<Record> existingList = records.get(key);
             existingList.add(studentRecord);
+            serverLogger.logger.log(Level.INFO,"Record Added with Last Name:"+lastName+" successfully");
             return "Record Added Successfully";
         }
     }

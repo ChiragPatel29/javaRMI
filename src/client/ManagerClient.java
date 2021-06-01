@@ -2,6 +2,7 @@ package client;
 
 import server.CenterServer;
 import server.CenterServerI;
+import utilities.ManagerLogger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,14 +11,17 @@ import java.rmi.NotBoundException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.*;
+import java.util.logging.Level;
 
 public class ManagerClient {
 
 
     public static void main(String[] args) throws IOException, NotBoundException {
 
-        Registry registry= LocateRegistry.getRegistry(2964);
-         Scanner scan = new Scanner(System.in);
+        ManagerLogger managerLogger;
+
+        Registry registry = LocateRegistry.getRegistry(2965);
+        Scanner scan = new Scanner(System.in);
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         CenterServer MTL = new CenterServer();
         String managerID = null;
@@ -27,7 +31,8 @@ public class ManagerClient {
             if (!ManagerClientHelper.checkManagerID(managerID)) managerID = null;
 
         }
-        CenterServerI centerServerI=(CenterServerI) registry.lookup(managerID.substring(0,3));
+        CenterServerI centerServerI = (CenterServerI) registry.lookup(managerID.substring(0, 3));
+        managerLogger=new ManagerLogger(managerID);
         while (true) {
 
             System.out.println("----------------------------Welcome to DCMS Please enter Command (1-5) to proceed ---------------------------------");
@@ -67,7 +72,7 @@ public class ManagerClient {
                 String location = scan.next();
 
 
-                centerServerI.createTRecord(firstName, lastName, address, phoneNo, specialization, location);
+                System.out.println(centerServerI.createTRecord(firstName, lastName, address, phoneNo, specialization, location));
                 //centerServerI.printRecords();
 
             } else if (command == 2) {
@@ -104,7 +109,8 @@ public class ManagerClient {
                     if (ManagerClientHelper.checkStatusDate(statusDate) == false) statusDate = null;
                 }
 
-                centerServerI.createSRecord(firstName, lastName, coursesRegistered, status, statusDate);
+                System.out.println(centerServerI.createSRecord(firstName, lastName, coursesRegistered, status, statusDate));
+
                 //MTL.printRecords();
 
             } else if (command == 3) {
@@ -120,12 +126,12 @@ public class ManagerClient {
                 String[] filedValue = line.split(" ");
                 List<String> fieldData = Arrays.asList(filedValue);
                 System.out.println(recordID + fieldName + line);
-                centerServerI.editRecord(recordID, fieldName, fieldData);
+                System.out.println(centerServerI.editRecord(recordID, fieldName, fieldData));
             } else if (command == 4) {
-                System.out.println("Getting count");
-                System.out.println("MTL: 5");
-                System.out.println("LVL: 7");
-                System.out.println("DDO: 9");
+                System.out.println("Getting Records");
+//                System.out.println("MTL: 5");
+//                System.out.println("LVL: 7");
+//                System.out.println("DDO: 9");
                 //centerServerI.printRecords();
             } else if (command == 5) {
                 System.out.println("-----------------------Logging out------------------");
