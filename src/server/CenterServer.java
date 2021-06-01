@@ -6,12 +6,17 @@ import models.TeacherRecord;
 import recordutils.RecordHelper;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class CenterServerC implements CenterServerI {
+public class CenterServer extends UnicastRemoteObject implements CenterServerI{
     HashMap<Character, ArrayList<Record>> records = new HashMap<>();
+
+    public CenterServer() throws RemoteException {
+        super();
+    }
 
     public String checkMissingValuesForTeacher(String firstName, String lastName, String address, String phone, String specialization, String location) {
         if (firstName.isBlank())

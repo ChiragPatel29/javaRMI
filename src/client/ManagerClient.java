@@ -1,21 +1,25 @@
 package client;
 
-import server.CenterServerC;
+import server.CenterServer;
+import server.CenterServerI;
 
-import javax.sound.midi.Soundbank;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.rmi.RemoteException;
+import java.rmi.NotBoundException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.*;
 
 public class ManagerClient {
 
 
-    public static void main(String[] args) throws IOException {
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws IOException, NotBoundException {
+
+        Registry registry= LocateRegistry.getRegistry(2964);
+         Scanner scan = new Scanner(System.in);
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
-        CenterServerC MTL = new CenterServerC();
+        CenterServer MTL = new CenterServer();
         String managerID = null;
         while (managerID == null) {
             System.out.println("Enter ManagerID: ");
@@ -23,7 +27,7 @@ public class ManagerClient {
             if (!ManagerClientHelper.checkManagerID(managerID)) managerID = null;
 
         }
-
+        CenterServerI centerServerI=(CenterServerI) registry.lookup(managerID.substring(0,3));
         while (true) {
 
             System.out.println("----------------------------Welcome to DCMS Please enter Command (1-5) to proceed ---------------------------------");
@@ -48,9 +52,14 @@ public class ManagerClient {
                 }
                 System.out.println(address.length());
 
-                System.out.println("Please Enter Phone No in format 123-123-1234");
-                String phoneNo = scan.next();
 
+                String phoneNo = null;
+                while (phoneNo == null) {
+
+                    System.out.println("Please Enter Phone No");
+                    phoneNo = scan.next();
+                    if (ManagerClientHelper.checkPhone(phoneNo) == false) phoneNo = null;
+                }
                 System.out.println("Please Enter Specialization");
                 String specialization = scan.next();
 
@@ -58,8 +67,8 @@ public class ManagerClient {
                 String location = scan.next();
 
 
-                MTL.createTRecord(firstName, lastName, address, phoneNo, specialization, location);
-                MTL.printRecords();
+                centerServerI.createTRecord(firstName, lastName, address, phoneNo, specialization, location);
+                //centerServerI.printRecords();
 
             } else if (command == 2) {
                 System.out.println("Please Enter First Name");
@@ -68,18 +77,35 @@ public class ManagerClient {
                 System.out.println("Please Enter Last Name");
                 String lastName = scan.next();
 
-                System.out.println("Please Enter Course Registered");
-                String line = obj.readLine();
+
+                String line = null;
+                while (line == null || line.length() == 0) {
+                    System.out.println("Please Enter Course Registered");
+                    line = obj.readLine();
+
+                }
                 String[] courses = line.split(" ");
                 List<String> coursesRegistered = Arrays.asList(courses);
 
-                System.out.println("Please Enter status: active/inactive");
-                String status = scan.next();
 
-                System.out.println("Please Enter Status Date in DD-MM-YYYY");
-                String statusDate = scan.next();
-                MTL.createSRecord(firstName, lastName, coursesRegistered, status, statusDate);
-                MTL.printRecords();
+                String status = null;
+                while (status == null) {
+                    System.out.println("Please Enter status: active/inactive");
+                    status = scan.next();
+                    if (ManagerClientHelper.checkStatus(status) == false) status = null;
+                }
+
+
+                String statusDate = null;
+                while (statusDate == null) {
+
+                    System.out.println("Please Enter Status Date in DD-MM-YYYY");
+                    statusDate = scan.next();
+                    if (ManagerClientHelper.checkStatusDate(statusDate) == false) statusDate = null;
+                }
+
+                centerServerI.createSRecord(firstName, lastName, coursesRegistered, status, statusDate);
+                //MTL.printRecords();
 
             } else if (command == 3) {
                 System.out.println("Editing Record");
@@ -94,13 +120,13 @@ public class ManagerClient {
                 String[] filedValue = line.split(" ");
                 List<String> fieldData = Arrays.asList(filedValue);
                 System.out.println(recordID + fieldName + line);
-                MTL.editRecord(recordID, fieldName, fieldData);
+                centerServerI.editRecord(recordID, fieldName, fieldData);
             } else if (command == 4) {
                 System.out.println("Getting count");
                 System.out.println("MTL: 5");
                 System.out.println("LVL: 7");
                 System.out.println("DDO: 9");
-                MTL.printRecords();
+                //centerServerI.printRecords();
             } else if (command == 5) {
                 System.out.println("-----------------------Logging out------------------");
                 break;
