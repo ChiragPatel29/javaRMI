@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class ManagerClientHelper {
     public static boolean checkManagerID(String managerID) {
         String location = managerID.substring(0, 3).toUpperCase();
-        if (!(location.equals("MTL") || location.equals("LVL") || location.equals("DDO)"))) {
+        if (!(location.equals("DDO") || (location.equals("LVL") || location.equals("MTL")))) {
             System.out.println("Please Enter Valid Manager ID");
             return false;
         }

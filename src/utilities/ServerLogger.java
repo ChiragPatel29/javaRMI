@@ -36,17 +36,5 @@ public class ServerLogger {
         logger.setLevel(Level.INFO);
 
     }
-
-    public static void main(String[] args) {
-        ServerLogger serverLogger = null;
-        try {
-            serverLogger = new ServerLogger("MTL");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        serverLogger.logger.log(Level.INFO, "First Log from Server");
-
-    }
-
 }
 

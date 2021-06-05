@@ -13,14 +13,17 @@ import java.rmi.registry.Registry;
 import java.util.*;
 import java.util.logging.Level;
 
+import static utilities.Constants.RMI_REGISTRY_PORT;
+import static utilities.Constants.getRegistryPort;
+
 public class ManagerClient {
 
 
     public static void main(String[] args) throws IOException, NotBoundException {
 
         ManagerLogger managerLogger;
+        Registry registry;
 
-        Registry registry = LocateRegistry.getRegistry(2965);
         Scanner scan = new Scanner(System.in);
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         CenterServer MTL = new CenterServer();
@@ -31,8 +34,10 @@ public class ManagerClient {
             if (!ManagerClientHelper.checkManagerID(managerID)) managerID = null;
 
         }
+        registry = LocateRegistry.getRegistry(getRegistryPort(managerID.substring(0, 3)));
+
         CenterServerI centerServerI = (CenterServerI) registry.lookup(managerID.substring(0, 3));
-        managerLogger=new ManagerLogger(managerID);
+        managerLogger = new ManagerLogger(managerID);
         while (true) {
 
             System.out.println("----------------------------Welcome to DCMS Please enter Command (1-5) to proceed ---------------------------------");
@@ -55,8 +60,6 @@ public class ManagerClient {
                     System.out.println("Please Enter Address");
                     address = obj.readLine();
                 }
-                System.out.println(address.length());
-
 
                 String phoneNo = null;
                 while (phoneNo == null) {
@@ -133,6 +136,7 @@ public class ManagerClient {
 //                System.out.println("LVL: 7");
 //                System.out.println("DDO: 9");
                 //centerServerI.printRecords();
+                System.out.println(centerServerI.getRecordCounts());
             } else if (command == 5) {
                 System.out.println("-----------------------Logging out------------------");
                 break;
