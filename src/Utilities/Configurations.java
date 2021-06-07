@@ -1,6 +1,6 @@
-package utilities;
+package Utilities;
 
-public class Constants {
+public class Configurations {
 
     public static final String LOG_DIR = System.getProperty("user.dir");
 
