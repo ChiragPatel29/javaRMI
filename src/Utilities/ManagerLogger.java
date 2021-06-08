@@ -22,8 +22,13 @@ public class ManagerLogger {
             fileDir.mkdirs();
         }
         this.filePath = dir + "\\" + managerID + ".log";
-
-
+        FileWriter fileWriter;
+        try {
+            fileWriter = new FileWriter(filePath, true);
+            fileWriter.close();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
     public void addLog(String message) {

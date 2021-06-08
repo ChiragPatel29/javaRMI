@@ -118,8 +118,6 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
             if (location.equals(serverName)) {
                 recordCounts.add(location + " " + getCurrentServerCount());
             } else {
-                UDPServer udpServer = new UDPServer(Server.servers.get(location));
-                udpServer.start();
                 try {
                     InetAddress address = InetAddress.getLocalHost();
                     DatagramSocket datagramSocket = new DatagramSocket();
@@ -145,8 +143,6 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
                     System.out.println("Client error: " + e.getMessage());
                 }
             }
-
-
         }
         recordCount = "";
         for (int i = 0; i < 3; i++) {

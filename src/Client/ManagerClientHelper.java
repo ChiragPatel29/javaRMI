@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +18,7 @@ public class ManagerClientHelper {
 
     public static boolean checkManagerID(String managerID) {
         String location = managerID.substring(0, 3);
-        if (!(location.equals("DDO") || (location.equals("LVL") || location.equals("MTL")))) {
+        if (!(location.equals("MTL") || (location.equals("LVL") || location.equals("DDO")))) {
             System.out.println("Please Enter Valid Manager ID");
             return false;
         }
@@ -96,4 +97,15 @@ public class ManagerClientHelper {
         }
         return true;
     }
+
+
+    public static boolean checkLocation(String location) {
+        location=location.toUpperCase();
+        if (!(location.equals("MTL") || (location.equals("LVL") || location.equals("DDO")))) {
+            System.out.println("Please Enter location MTL/LVL/DDO");
+            return false;
+        }
+        return true;
+    }
+
 }

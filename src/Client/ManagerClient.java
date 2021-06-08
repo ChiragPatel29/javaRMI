@@ -72,7 +72,6 @@ public class ManagerClient {
 
                 String phoneNo = null;
                 while (phoneNo == null) {
-
                     System.out.println("Please Enter Phone No OR Enter 0 to go to Main Menu");
                     phoneNo = scan.next();
                     if (checkIfZero(phoneNo)) break;
@@ -83,12 +82,19 @@ public class ManagerClient {
                 String specialization = scan.next();
                 if (checkIfZero(specialization)) continue;
 
-                System.out.println("Please Enter Location OR Enter 0 to go to Main Menu");
-                String location = scan.next();
+                String location = null;
+                while (location == null) {
+                    System.out.println("Please Enter Location OR Enter 0 to go to Main Menu");
+                    location = scan.next();
+                    if (checkIfZero(location)) break;
+                    if (!ManagerClientHelper.checkLocation(location)) location = null;
+                }
                 if (checkIfZero(location)) continue;
 
                 String teacherRecord = centerServerI.createTRecord(firstName, lastName, address, phoneNo, specialization, location);
+
                 System.out.println(teacherRecord);
+
                 managerLogger.addLog(teacherRecord);
 
             } else if (command == 2) {
