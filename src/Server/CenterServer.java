@@ -58,30 +58,37 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
 
 
     @Override
-    synchronized public String createTRecord(String firstName, String lastName, String address, String phone, String specialization, String location) throws RemoteException {
-        //if (checkMissingValuesForTeacher(firstName, lastName, address, phone, specialization, location) == null) {
-        TeacherRecord teacherRecord = new TeacherRecord(firstName, lastName, address, Long.parseLong(phone), specialization, location);
+    public String createTRecord(String firstName, String lastName, String address, String phone, String specialization, String location) throws RemoteException {
+        TeacherRecord teacherRecord;
+        synchronized (this) {
+
+            teacherRecord = new TeacherRecord(firstName, lastName, address, Long.parseLong(phone), specialization, location);
+        }
         Character key = lastName.toUpperCase().charAt(0);
         if (records.get(key) == null) {
             ArrayList<Record> newList = new ArrayList<>();
             newList.add(teacherRecord);
             records.put(key, newList);
             serverLogger.addLog("Record Added with Last Name: " + lastName + " successfully");
-            return "Record Added successfully";
+            return "New Teacher Record Created successfully with ID:" + teacherRecord.getRecordID();
 
         } else {
             ArrayList<Record> existingList = records.get(key);
             existingList.add(teacherRecord);
             serverLogger.addLog("Record Added with Last Name: " + lastName + " successfully");
 
-            return "Record Added Successfully";
+            return "New Teacher Record Created successfully with ID:" + teacherRecord.getRecordID();
         }
 
     }
 
     @Override
-    synchronized public String createSRecord(String firstName, String lastName, List<String> courseRegistered, String status, String statusDate) throws RemoteException {
-        StudentRecord studentRecord = new StudentRecord(firstName, lastName, courseRegistered, status, statusDate);
+    public String createSRecord(String firstName, String lastName, List<String> courseRegistered, String status, String statusDate) throws RemoteException {
+        StudentRecord studentRecord;
+        synchronized (this) {
+            studentRecord = new StudentRecord(firstName, lastName, courseRegistered, status, statusDate);
+        }
+
         Character key = lastName.toUpperCase().charAt(0);
         if (records.get(key) == null) {
             ArrayList<Record> newList = new ArrayList<>();
@@ -89,18 +96,18 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
             records.put(key, newList);
             serverLogger.addLog("Record Added with Last Name: " + lastName + " successfully");
 
-            return "Record Added successfully";
+            return "New Student Record Created successfully with ID:" + studentRecord.getRecordID();
 
         } else {
             ArrayList<Record> existingList = records.get(key);
             existingList.add(studentRecord);
             serverLogger.addLog("Record Added with Last Name: " + lastName + " successfully");
 
-            return "Record Added Successfully";
+            return "New Student Record Created successfully with ID:" + studentRecord.getRecordID();
         }
     }
 
-    public int getCurrentServerCount() {
+    synchronized public int getCurrentServerCount() {
         int count = 0;
         for (Character firstLetter : records.keySet()) {
             ArrayList<Record> krecord = records.get(firstLetter);
@@ -110,7 +117,7 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
     }
 
     @Override
-    public String getRecordCounts() throws RemoteException {
+    synchronized public String getRecordCounts() throws RemoteException {
         ArrayList<String> recordCounts = new ArrayList<>();
         String recordCount;
 

@@ -12,4 +12,8 @@ public class Record {
         this.lastName = lastName;
     }
 
+    public String getRecordID(){
+        return recordID;
+    }
+
 }
