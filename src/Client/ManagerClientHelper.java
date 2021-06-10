@@ -266,21 +266,21 @@ public class ManagerClientHelper {
 
     public static String getFieldValue(String fieldToCheck) throws IOException {
         String fieldValue;
-            if (fieldToCheck.equals("address"))
-                    fieldValue=getMultipleInput("Please Enter New Address");
-            else if(fieldToCheck.equals("phone"))
-                    fieldValue=getPhoneNo();
-            else if (fieldToCheck.equals("location"))
-                    fieldValue=getLocation();
+        if (fieldToCheck.equals("address"))
+            fieldValue = getMultipleInput("Please Enter New Address");
+        else if (fieldToCheck.equals("phone"))
+            fieldValue = getPhoneNo();
+        else if (fieldToCheck.equals("location"))
+            fieldValue = getLocation();
 
 
-            else if (fieldToCheck.equals("coursesRegistered"))
-                    fieldValue=getMultipleInput("Please Enter New Courses to be Registered  Separated by Space");
-            else if (fieldToCheck.equals("status"))
-                    fieldValue=getStatus();
-            else
-                    fieldValue=getStatusDate();
+        else if (fieldToCheck.equals("coursesRegistered"))
+            fieldValue = getMultipleInput("Please Enter New Courses to be Registered  Separated by Space");
+        else if (fieldToCheck.equals("status"))
+            fieldValue = getStatus();
+        else
+            fieldValue = getStatusDate();
 
-                return fieldValue;
-        }
+        return fieldValue;
+    }
 }

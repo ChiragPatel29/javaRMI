@@ -61,9 +61,9 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
     public String createTRecord(String firstName, String lastName, String address, String phone, String specialization, String location) throws RemoteException {
         TeacherRecord teacherRecord;
         synchronized (this) {
-
             teacherRecord = new TeacherRecord(firstName, lastName, address, Long.parseLong(phone), specialization, location);
         }
+
         Character key = lastName.toUpperCase().charAt(0);
         if (records.get(key) == null) {
             ArrayList<Record> newList = new ArrayList<>();
@@ -117,7 +117,9 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
     }
 
     @Override
-    synchronized public String getRecordCounts() throws RemoteException {
+    public String getRecordCounts() throws RemoteException {
+
+
         ArrayList<String> recordCounts = new ArrayList<>();
         String recordCount;
 
@@ -163,7 +165,7 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
     }
 
 
-    synchronized public String editTeacherRecord(String recordID, String fieldName, String newValue) {
+    public String editTeacherRecord(String recordID, String fieldName, String newValue) {
 
         for (Character crecord : records.keySet()) {
             ArrayList<Record> krecord = records.get(crecord);
@@ -189,7 +191,7 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
         return "No such record found";
     }
 
-    synchronized public String editStudentRecord(String recordID, String fieldName, List<String> newValue) {
+    public String editStudentRecord(String recordID, String fieldName, List<String> newValue) {
 
         for (Character crecord : records.keySet()) {
             ArrayList<Record> krecord = records.get(crecord);
@@ -217,7 +219,7 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
 
 
     @Override
-    synchronized public String editRecord(String recordID, String fieldName, List<String> newValue) throws RemoteException {
+    public String editRecord(String recordID, String fieldName, List<String> newValue) throws RemoteException {
         String recordType = recordID.substring(0, 2);
         if (recordType.equals("TR"))
             return editTeacherRecord(recordID, fieldName, newValue.get(0));
