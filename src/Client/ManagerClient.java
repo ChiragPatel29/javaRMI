@@ -75,9 +75,9 @@ public class ManagerClient {
 
                 String location = getLocation();
                 if (checkIfZero(location)) continue;
-
+                System.out.println("Sending data to server awaiting response:");
                 String teacherRecord = centerServerI.createTRecord(firstName, lastName, address, phone, specialization, location);
-                System.out.println(teacherRecord);
+                System.out.println("Response received:" + teacherRecord);
                 managerLogger.addLog(teacherRecord);
 
             } else if (command == 2) {
@@ -103,9 +103,9 @@ public class ManagerClient {
 
                 String statusDate = getStatusDate();
                 if (checkIfZero(statusDate)) continue;
-
+                System.out.println("Sending data to server awaiting response:");
                 String studentRecord = centerServerI.createSRecord(firstName, lastName, coursesRegistered, status, statusDate);
-                System.out.println(studentRecord);
+                System.out.println("Response received:" + studentRecord);
                 managerLogger.addLog(studentRecord);
 
             } else if (command == 3) {
@@ -125,8 +125,9 @@ public class ManagerClient {
 
                 String[] filedValue = line.split(" ");
                 List<String> fieldData = Arrays.asList(filedValue);
+                System.out.println("Sending data to server awaiting response:");
                 String editedRecord = centerServerI.editRecord(recordID, fieldName, fieldData);
-                System.out.println(editedRecord);
+                System.out.println("Response received:" + editedRecord);
             } else if (command == 4) {
                 System.out.println("Getting Records");
                 String recordCounts = centerServerI.getRecordCounts();
