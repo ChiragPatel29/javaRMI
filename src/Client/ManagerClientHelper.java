@@ -24,13 +24,13 @@ public class ManagerClientHelper {
     public static boolean checkManagerID(String managerID) {
         String location = managerID.substring(0, 3);
         if (!(location.equals("MTL") || (location.equals("LVL") || location.equals("DDO")))) {
-            System.out.println("Please Enter Valid Manager ID");
+            System.out.println("Please Enter Valid Manager ID with proper prefix (MTL,LVL,DDO)");
             return false;
         }
         try {
             String number = managerID.substring(3);
             if (number.length() != 4) {
-                System.out.println("Please Enter Valid ID");
+                System.out.println("Please Enter Valid ID (Eg. MTL1111)");
                 return false;
             }
             int numID = Integer.parseInt(number);
