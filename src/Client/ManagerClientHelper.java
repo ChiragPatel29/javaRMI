@@ -172,7 +172,7 @@ public class ManagerClientHelper {
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         String phoneNo = null;
         while (phoneNo == null || phoneNo.length() == 0) {
-            System.out.println("Please Enter Phone No");
+            System.out.println("Please Enter Phone No:");
             phoneNo = obj.readLine();
             if (checkIfZero(phoneNo)) break;
             if (!(checkPhone(phoneNo) && checkIfSizeOne(phoneNo))) phoneNo = null;
@@ -186,7 +186,7 @@ public class ManagerClientHelper {
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         String location = null;
         while (location == null) {
-            System.out.println("Please Enter Location");
+            System.out.println("Please Enter Location:");
             location = obj.readLine();
             if (checkIfZero(location)) break;
             if (!(checkIfSizeOne(location) && checkLocation(location))) location = null;
@@ -213,7 +213,7 @@ public class ManagerClientHelper {
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         String statusDate = null;
         while (statusDate == null || statusDate.length() == 0) {
-            System.out.println("Please Enter Status Date in DD-MM-YYYY");
+            System.out.println("Please Enter Status Date in DD-MM-YYYY:");
             statusDate = obj.readLine();
             if (checkIfZero(statusDate)) break;
             if (!(checkIfSizeOne(statusDate) && checkStatusDate(statusDate))) statusDate = null;
