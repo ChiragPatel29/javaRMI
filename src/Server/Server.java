@@ -1,6 +1,7 @@
 package Server;
 
 import Utilities.Configurations;
+import Utilities.ServerLogger;
 
 import java.io.IOException;
 import java.rmi.AlreadyBoundException;
@@ -15,9 +16,10 @@ import java.util.HashMap;
 public class Server {
     static HashMap<String, CenterServer> servers;
     static CenterServer serverMTL, serverLVL, serverDDO;
-
+    static ServerLogger globalServer;
 
     public static void initializeServers() throws IOException {
+        globalServer = new ServerLogger("GlobalServer");
         servers = new HashMap<>();
         serverMTL = new CenterServer("MTL");
         serverLVL = new CenterServer("LVL");
@@ -25,6 +27,9 @@ public class Server {
         servers.put("MTL", serverMTL);
         servers.put("LVL", serverLVL);
         servers.put("DDO", serverLVL);
+        globalServer.addLog("MTL Server Started");
+        globalServer.addLog("LVL Server Started");
+        globalServer.addLog("DDO Server Started");
 
     }
 
@@ -63,7 +68,8 @@ public class Server {
         serverDDO.createSRecord("Harshil", "Patel", Arrays.asList(myCoursesDDO), "active", "15-01-2021");
         serverDDO.createSRecord("Parth", "Navsariwala", Arrays.asList(myCoursesDDO), "inactive", "01-01-2021");
 
-        System.out.println("Servers populated with MTL: 8 LVL: 5 DDO: 6 Records respectively");
+        System.out.println("Servers populated with MTL: " + serverMTL.getCurrentServerCount() + " LVL: " + serverLVL.getCurrentServerCount() + " DDO: " + serverLVL.getCurrentServerCount() + " Records respectively");
+        globalServer.addLog("Servers populated with MTL: " + serverMTL.getCurrentServerCount() + " LVL: " + serverLVL.getCurrentServerCount() + " DDO: " + serverLVL.getCurrentServerCount() + " Records respectively");
     }
 
 
@@ -76,9 +82,19 @@ public class Server {
         registryLVL = LocateRegistry.createRegistry(Configurations.RMI_PORT_LVL);
         registryDDO = LocateRegistry.createRegistry(Configurations.RMI_PORT_DDO);
 
+        globalServer.addLog("MTL Registry created at: " + Configurations.RMI_PORT_MTL);
+        globalServer.addLog("LVL Registry created at: " + Configurations.RMI_PORT_LVL);
+        globalServer.addLog("DDO Registry created at: " + Configurations.RMI_PORT_DDO);
+
+
         registryMTL.bind("MTL", serverMTL);
         registryLVL.bind("LVL", serverLVL);
         registryDDO.bind("DDO", serverDDO);
+
+
+        globalServer.addLog("serverMTL binded with MTL for lookup");
+        globalServer.addLog("serverLVL binded with LVL for lookup");
+        globalServer.addLog("serverDDO binded with DDO for lookup");
 
         populateServers();
 

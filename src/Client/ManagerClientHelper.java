@@ -145,6 +145,50 @@ public class ManagerClientHelper {
         return strBuffer;
     }
 
+
+    //
+    public static String getLastName(String displayMessage) throws IOException {
+        BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
+        String strBuffer = null;
+        while (strBuffer == null || strBuffer.length() == 0) {
+            System.out.println(displayMessage);
+            strBuffer = obj.readLine();
+            if (checkIfZero(strBuffer)) break;
+
+            String lastNameRegex = "^[\\p{L} .'-]+$";
+            ;
+            Pattern patternLastName = Pattern.compile(lastNameRegex);
+            Matcher matcherLastName = patternLastName.matcher(strBuffer);
+            if (!matcherLastName.matches()) strBuffer = null;
+
+
+            if (!(checkIfSizeOne(strBuffer)&&(matcherLastName.matches()))) strBuffer = null;
+        }
+        return strBuffer;
+    }
+
+
+    public static String getFirstName(String displayMessage) throws IOException {
+        BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
+        String strBuffer = null;
+        while (strBuffer == null || strBuffer.length() == 0) {
+            System.out.println(displayMessage);
+            strBuffer = obj.readLine();
+            if (checkIfZero(strBuffer)) break;
+            String firstNameRegex = "^[\\p{L} .'-]+$";
+            ;
+            Pattern patternFirstName = Pattern.compile(firstNameRegex);
+            Matcher matcherFirstName = patternFirstName.matcher(strBuffer);
+            if (!matcherFirstName.matches()) strBuffer = null;
+
+
+        }
+        return strBuffer;
+    }
+
+    //
+
+
     public static int getCommand() throws IOException {
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         String commandStr = null;
@@ -236,7 +280,7 @@ public class ManagerClientHelper {
         return recordID;
     }
 
-    public static boolean checkIfFieldPermisible(String recordID, String fieldToCheck) {
+    public static boolean checkIfFieldPermissible(String recordID, String fieldToCheck) {
         if (recordID.substring(0, 2).equals("TR")) {
             if (fieldToCheck.equals("address") || fieldToCheck.equals("phone") || fieldToCheck.equals("phone"))
                 return true;
@@ -256,7 +300,7 @@ public class ManagerClientHelper {
             System.out.println("Enter Field Name");
             fieldName = obj.readLine();
             if (checkIfZero(fieldName)) break;
-            if (!(checkIfSizeOne(fieldName) && checkIfFieldPermisible(recordID, fieldName))) fieldName = null;
+            if (!(checkIfSizeOne(fieldName) && checkIfFieldPermissible(recordID, fieldName))) fieldName = null;
 
         }
         return fieldName;

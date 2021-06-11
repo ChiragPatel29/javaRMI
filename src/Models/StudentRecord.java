@@ -3,13 +3,13 @@ package Models;
 import java.util.List;
 
 public class StudentRecord extends Record {
-    List<String> courseRegistered;
+    List<String> coursesRegistered;
     String status;
     String statusDate;
 
     public StudentRecord(String firstName, String lastName, List<String> coursesRegistered, String status, String statusDate) {
         super("SR" + Record.recordCounter, firstName, lastName);
-        this.courseRegistered = coursesRegistered;
+        this.coursesRegistered = coursesRegistered;
         this.status = status;
         this.statusDate = statusDate;
         Record.recordCounter++;
@@ -17,7 +17,7 @@ public class StudentRecord extends Record {
     }
 
     public List<String> getCoursesRegistered() {
-        return courseRegistered;
+        return coursesRegistered;
     }
 
 
@@ -30,7 +30,7 @@ public class StudentRecord extends Record {
     }
 
     public void setCoursesRegistered(List<String> coursesRegistered) {
-        this.courseRegistered = coursesRegistered;
+        this.coursesRegistered = coursesRegistered;
 
     }
 
@@ -43,6 +43,13 @@ public class StudentRecord extends Record {
     public void setStatusDate(String statusDate) {
         this.statusDate = statusDate;
 
+    }
+
+
+    public String printRecord() {
+        return "RecordID: " + this.recordID + " First Name: " + this.firstName + " LastName: "
+                + this.lastName + " \n Courses Registered: " + this.coursesRegistered + " Status: " + this.status
+                + " Status Date: " + this.statusDate;
     }
 
 

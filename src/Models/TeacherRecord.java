@@ -51,4 +51,10 @@ public class TeacherRecord extends Record {
 
     }
 
+    public String printRecord() {
+        return "RecordID: " + this.recordID + " First Name: " + this.firstName + "  LastName:"
+                + this.lastName + " \n Address: " + this.address + " Phone No: " + this.phone + " Specialization: "
+                + this.specialization + " Location: " + this.location;
+    }
+
 }

@@ -116,3 +116,136 @@
 09 Jun 2021 18.58.46       Record Added with Last Name: Narula successfully
 09 Jun 2021 19.01.07       Record Added with Last Name: Brown successfully
 09 Jun 2021 19.02.29       Record Added with Last Name: wodwo successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Brown successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Red successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Forman successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Hyde successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Shah successfully
+11 Jun 2021 14.11.36       Record Added with Last Name: Narula successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Brown successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Red successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Forman successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Hyde successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Shah successfully
+11 Jun 2021 14.18.10       Record Added with Last Name: Narula successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Brown successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Red successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Forman successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Hyde successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Shah successfully
+11 Jun 2021 14.18.29       Record Added with Last Name: Narula successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Brown successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Red successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Forman successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Hyde successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Patel successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Shah successfully
+11 Jun 2021 14.18.42       Record Added with Last Name: Narula successfully
+11 Jun 2021 14.26.39       New Teacher Record Created successfully with ID:TR10000
+11 Jun 2021 14.26.39       New Teacher Record Created successfully with ID:TR10001
+11 Jun 2021 14.26.39       New Teacher Record Created successfully with ID:TR10002
+11 Jun 2021 14.26.39       New Teacher Record Created successfully with ID:TR10003
+11 Jun 2021 14.26.39       New Student Record Created successfully with ID:SR10004
+11 Jun 2021 14.26.39       New Student Record Created successfully with ID:SR10005
+11 Jun 2021 14.26.39       New Student Record Created successfully with ID:SR10006
+11 Jun 2021 14.26.39       New Student Record Created successfully with ID:SR10007
+11 Jun 2021 14.27.34       New Teacher Record Created successfully with ID:TR10019
+11 Jun 2021 14.28.39       TR10019Address edited successfully
+11 Jun 2021 14.29.07       New Student Record Created successfully with ID:SR10020
+11 Jun 2021 14.30.23       Doesn't allow to modification of coursesRegistered
+11 Jun 2021 14.31.13       New Student Record Created successfully with ID:SR10021
+11 Jun 2021 14.31.44       Doesn't allow to modification of coursesRegistered
+11 Jun 2021 14.32.42       Doesn't allow to modification of coursesRegistered
+11 Jun 2021 14.38.48       Doesn't allow to modification of coursesRegistered
+11 Jun 2021 14.39.00       Getting counts from another server
+11 Jun 2021 14.39.00       Count received is: LVL 5
+11 Jun 2021 14.39.00       Getting counts from another server
+11 Jun 2021 14.39.00       Count received is: DDO 6
+11 Jun 2021 14.50.03       New Teacher Record Created successfully with ID:TR10000
+11 Jun 2021 14.50.03       New Teacher Record Created successfully with ID:TR10001
+11 Jun 2021 14.50.03       New Teacher Record Created successfully with ID:TR10002
+11 Jun 2021 14.50.03       New Teacher Record Created successfully with ID:TR10003
+11 Jun 2021 14.50.03       New Student Record Created successfully with ID:SR10004
+11 Jun 2021 14.50.03       New Student Record Created successfully with ID:SR10005
+11 Jun 2021 14.50.03       RecordID: SR10005 First Name:Harsh LastName:Patel Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 15-01-2021
+11 Jun 2021 14.50.03       New Student Record Created successfully with ID:SR10006
+11 Jun 2021 14.50.03       New Student Record Created successfully with ID:SR10007
+11 Jun 2021 14.52.20       New Teacher Record Created successfully with ID:TR10000
+11 Jun 2021 14.52.20       RecordID: TR10000 First Name:Alice LastName:Brown 
+ Address: Hue Street Montreal Phone No: 1234567890 Specialization: French Location: French
+11 Jun 2021 14.52.20       New Teacher Record Created successfully with ID:TR10001
+11 Jun 2021 14.52.20       RecordID: TR10001 First Name:Bob LastName:Red 
+ Address: Cote Street Laval Phone No: 1234561190 Specialization: Java Location: Java
+11 Jun 2021 14.52.20       New Teacher Record Created successfully with ID:TR10002
+11 Jun 2021 14.52.20       RecordID: TR10002 First Name:George LastName:Forman 
+ Address: Notre Doval Phone No: 1234567809 Specialization: Algo Location: Algo
+11 Jun 2021 14.52.20       New Teacher Record Created successfully with ID:TR10003
+11 Jun 2021 14.52.20       RecordID: TR10003 First Name:Steve LastName:Hyde 
+ Address: Dam Montreal Phone No: 1234567880 Specialization: English Location: English
+11 Jun 2021 14.52.20       New Student Record Created successfully with ID:SR10004
+11 Jun 2021 14.52.20       RecordID: SR10004 First Name:Chirag LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 12-01-2021
+11 Jun 2021 14.52.20       New Student Record Created successfully with ID:SR10005
+11 Jun 2021 14.52.20       RecordID: SR10005 First Name:Harsh LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 15-01-2021
+11 Jun 2021 14.52.20       New Student Record Created successfully with ID:SR10006
+11 Jun 2021 14.52.20       RecordID: SR10006 First Name:Parth LastName: Shah 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 01-01-2021
+11 Jun 2021 14.52.20       New Student Record Created successfully with ID:SR10007
+11 Jun 2021 14.52.20       RecordID: SR10007 First Name:Sanyam LastName: Narula 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 20-10-2020
+11 Jun 2021 14.53.55       New Teacher Record Created successfully with ID:TR10000
+11 Jun 2021 14.53.55       RecordID: TR10000 First Name: Alice  LastName:Brown 
+ Address: Hue Street Montreal Phone No: 1234567890 Specialization: French Location: French
+11 Jun 2021 14.53.55       New Teacher Record Created successfully with ID:TR10001
+11 Jun 2021 14.53.55       RecordID: TR10001 First Name: Bob  LastName:Red 
+ Address: Cote Street Laval Phone No: 1234561190 Specialization: Java Location: Java
+11 Jun 2021 14.53.55       New Teacher Record Created successfully with ID:TR10002
+11 Jun 2021 14.53.55       RecordID: TR10002 First Name: George  LastName:Forman 
+ Address: Notre Doval Phone No: 1234567809 Specialization: Algo Location: Algo
+11 Jun 2021 14.53.55       New Teacher Record Created successfully with ID:TR10003
+11 Jun 2021 14.53.55       RecordID: TR10003 First Name: Steve  LastName:Hyde 
+ Address: Dam Montreal Phone No: 1234567880 Specialization: English Location: English
+11 Jun 2021 14.53.55       New Student Record Created successfully with ID:SR10004
+11 Jun 2021 14.53.55       RecordID: SR10004 First Name: Chirag LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 12-01-2021
+11 Jun 2021 14.53.55       New Student Record Created successfully with ID:SR10005
+11 Jun 2021 14.53.55       RecordID: SR10005 First Name: Harsh LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 15-01-2021
+11 Jun 2021 14.53.55       New Student Record Created successfully with ID:SR10006
+11 Jun 2021 14.53.55       RecordID: SR10006 First Name: Parth LastName: Shah 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 01-01-2021
+11 Jun 2021 14.53.55       New Student Record Created successfully with ID:SR10007
+11 Jun 2021 14.53.55       RecordID: SR10007 First Name: Sanyam LastName: Narula 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 20-10-2020
+11 Jun 2021 14.54.59       New Teacher Record Created successfully with ID:TR10000
+11 Jun 2021 14.54.59       RecordID: TR10000 First Name: Alice  LastName:Brown 
+ Address: Hue Street Montreal Phone No: 1234567890 Specialization: French Location: MTL
+11 Jun 2021 14.54.59       New Teacher Record Created successfully with ID:TR10001
+11 Jun 2021 14.54.59       RecordID: TR10001 First Name: Bob  LastName:Red 
+ Address: Cote Street Laval Phone No: 1234561190 Specialization: Java Location: LVL
+11 Jun 2021 14.54.59       New Teacher Record Created successfully with ID:TR10002
+11 Jun 2021 14.54.59       RecordID: TR10002 First Name: George  LastName:Forman 
+ Address: Notre Doval Phone No: 1234567809 Specialization: Algo Location: DDO
+11 Jun 2021 14.54.59       New Teacher Record Created successfully with ID:TR10003
+11 Jun 2021 14.54.59       RecordID: TR10003 First Name: Steve  LastName:Hyde 
+ Address: Dam Montreal Phone No: 1234567880 Specialization: English Location: MTL
+11 Jun 2021 14.54.59       New Student Record Created successfully with ID:SR10004
+11 Jun 2021 14.54.59       RecordID: SR10004 First Name: Chirag LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 12-01-2021
+11 Jun 2021 14.54.59       New Student Record Created successfully with ID:SR10005
+11 Jun 2021 14.54.59       RecordID: SR10005 First Name: Harsh LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 15-01-2021
+11 Jun 2021 14.54.59       New Student Record Created successfully with ID:SR10006
+11 Jun 2021 14.54.59       RecordID: SR10006 First Name: Parth LastName: Shah 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 01-01-2021
+11 Jun 2021 14.54.59       New Student Record Created successfully with ID:SR10007
+11 Jun 2021 14.54.59       RecordID: SR10007 First Name: Sanyam LastName: Narula 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 20-10-2020
