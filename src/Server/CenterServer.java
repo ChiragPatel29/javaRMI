@@ -179,14 +179,17 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
                     if (fieldName.equals("address")) {
                         teacherRecord.setAddress(newValue);
                         serverLogger.addLog(recordID + "Address edited successfully");
+                        serverLogger.addLog(teacherRecord.printRecord());
                         return "Value edited successfully";
                     } else if (fieldName.equals("phone")) {
                         teacherRecord.setPhoneNo(Long.parseLong(newValue));
                         serverLogger.addLog(recordID + "Phone No edited successfully");
+                        serverLogger.addLog(teacherRecord.printRecord());
                         return "Value edited successfully";
                     } else if (fieldName.equals("location")) {
                         teacherRecord.setLocation(newValue);
                         serverLogger.addLog(recordID + " Location edited successfully");
+                        serverLogger.addLog(teacherRecord.printRecord());
                         return "Value edited successfully";
                     } else {
                         serverLogger.addLog("Doesn't allow to modification of " + fieldName);
@@ -210,14 +213,17 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
                     if (fieldName.equals("status")) {
                         studentRecord.setStatus(newValue.get(0));
                         serverLogger.addLog(recordID + " status edited successfully");
+                        serverLogger.addLog(studentRecord.printRecord());
                         return "Value edited successfully";
                     } else if (fieldName.equals("statusDate")) {
                         studentRecord.setStatusDate(newValue.get(0));
                         serverLogger.addLog(recordID + " statusDate edited successfully");
+                        serverLogger.addLog(studentRecord.printRecord());
                         return "Value edited successfully";
                     } else if (fieldName.equals("coursesRegistered")) {
                         studentRecord.setCoursesRegistered(newValue);
                         serverLogger.addLog(recordID + " coursesRegistered edited successfully");
+                        serverLogger.addLog(studentRecord.printRecord());
                         return "Value edited successfully";
                     } else {
                         serverLogger.addLog("Doesn't allow to modification of " + fieldName);

@@ -54,11 +54,11 @@ public class ManagerClient {
             if (command == 1) {
                 System.out.println("Creating Teacher Record");
 
-                String firstName = getMultipleInput("Please Enter First Name");
+                String firstName = getFirstName("Please Enter First Name");
                 if (checkIfZero(firstName)) continue;
 
 
-                String lastName = getSingleInput("Please Enter Last Name");
+                String lastName = getLastName("Please Enter Last Name");
                 if (checkIfZero(lastName)) continue;
 
 
@@ -83,11 +83,11 @@ public class ManagerClient {
             } else if (command == 2) {
                 System.out.println("Creating Student Record");
 
-                String firstName = getMultipleInput(("Please Enter First Name"));
+                String firstName = getFirstName(("Please Enter First Name"));
                 if (checkIfZero(firstName)) continue;
 
 
-                String lastName = getSingleInput("Please Enter Last Name");
+                String lastName = getLastName("Please Enter Last Name");
                 if (checkIfZero(lastName)) continue;
 
                 String line = getMultipleInput("Please Enter Course Registered  Separated by Space");

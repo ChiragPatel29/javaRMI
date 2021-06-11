@@ -84,3 +84,21 @@
 09 Jun 2021 18.58.46       Record Added with Last Name: Patel successfully
 09 Jun 2021 18.58.46       Record Added with Last Name: Navsariwala successfully
 09 Jun 2021 19.02.27       Record Added with Last Name: wdo successfully
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10013
+11 Jun 2021 21.47.06       RecordID: TR10013 First Name: Sheldon  LastName:Copper 
+ Address: Hue Street Montreal Phone No: 1234567890 Specialization: French Location: MTL
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10014
+11 Jun 2021 21.47.06       RecordID: TR10014 First Name: Raj  LastName:Khotrapali 
+ Address: Cote Street Laval Phone No: 1234561190 Specialization: Java Location: LVL
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10015
+11 Jun 2021 21.47.06       RecordID: TR10015 First Name: Howard  LastName:Wolowtiz 
+ Address: Notre Doval Phone No: 1234567890 Specialization: Algo Location: DDO
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10016
+11 Jun 2021 21.47.06       RecordID: SR10016 First Name: Raj LastName: Banker 
+ Courses Registered: [SOEN6411, COMP6231] Status: active Status Date: 12-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10017
+11 Jun 2021 21.47.06       RecordID: SR10017 First Name: Harshil LastName: Patel 
+ Courses Registered: [SOEN6411, COMP6231] Status: active Status Date: 15-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10018
+11 Jun 2021 21.47.06       RecordID: SR10018 First Name: Parth LastName: Navsariwala 
+ Courses Registered: [SOEN6411, COMP6231] Status: inactive Status Date: 01-01-2021

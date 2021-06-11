@@ -249,3 +249,32 @@
 11 Jun 2021 14.54.59       New Student Record Created successfully with ID:SR10007
 11 Jun 2021 14.54.59       RecordID: SR10007 First Name: Sanyam LastName: Narula 
  Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 20-10-2020
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10000
+11 Jun 2021 21.47.06       RecordID: TR10000 First Name: Alice  LastName:Brown 
+ Address: Hue Street Montreal Phone No: 1234567890 Specialization: French Location: MTL
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10001
+11 Jun 2021 21.47.06       RecordID: TR10001 First Name: Bob  LastName:Red 
+ Address: Cote Street Laval Phone No: 1234561190 Specialization: Java Location: LVL
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10002
+11 Jun 2021 21.47.06       RecordID: TR10002 First Name: George  LastName:Forman 
+ Address: Notre Doval Phone No: 1234567809 Specialization: Algo Location: DDO
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10003
+11 Jun 2021 21.47.06       RecordID: TR10003 First Name: Steve  LastName:Hyde 
+ Address: Dam Montreal Phone No: 1234567880 Specialization: English Location: MTL
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10004
+11 Jun 2021 21.47.06       RecordID: SR10004 First Name: Chirag LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 12-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10005
+11 Jun 2021 21.47.06       RecordID: SR10005 First Name: Harsh LastName: Patel 
+ Courses Registered: [COMP335, SOEN6411] Status: active Status Date: 15-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10006
+11 Jun 2021 21.47.06       RecordID: SR10006 First Name: Parth LastName: Shah 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 01-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10007
+11 Jun 2021 21.47.06       RecordID: SR10007 First Name: Sanyam LastName: Narula 
+ Courses Registered: [COMP335, SOEN6411] Status: inactive Status Date: 20-10-2020
+11 Jun 2021 21.51.47       SR10007 coursesRegistered edited successfully
+11 Jun 2021 21.52.34       New Student Record Created successfully with ID:SR10019
+11 Jun 2021 21.52.34       RecordID: SR10019 First Name: Chirag LastName: Liea 
+ Courses Registered: [COMP] Status: active Status Date: 12-05-1998
+11 Jun 2021 21.52.57       SR10019 coursesRegistered edited successfully

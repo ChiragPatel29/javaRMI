@@ -147,3 +147,18 @@
 11 Jun 2021 14.54.59       New Student Record Created successfully with ID:SR10012
 11 Jun 2021 14.54.59       RecordID: SR10012 First Name: Sid LastName: Dave 
  Courses Registered: [COMP6411, SOEN6411] Status: inactive Status Date: 01-01-2021
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10008
+11 Jun 2021 21.47.06       RecordID: TR10008 First Name: Donna  LastName:Green 
+ Address: Downtown Street Montreal Phone No: 1234567890 Specialization: French Location: MTL
+11 Jun 2021 21.47.06       New Teacher Record Created successfully with ID:TR10009
+11 Jun 2021 21.47.06       RecordID: TR10009 First Name: Red  LastName:Forman 
+ Address: Cote Street Laval Phone No: 1234561190 Specialization: Java Location: LVL
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10010
+11 Jun 2021 21.47.06       RecordID: SR10010 First Name: Dhawani LastName: Hansoti 
+ Courses Registered: [COMP6411, SOEN6411] Status: active Status Date: 12-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10011
+11 Jun 2021 21.47.06       RecordID: SR10011 First Name: Payal LastName: Rohit 
+ Courses Registered: [COMP6411, SOEN6411] Status: active Status Date: 15-01-2021
+11 Jun 2021 21.47.06       New Student Record Created successfully with ID:SR10012
+11 Jun 2021 21.47.06       RecordID: SR10012 First Name: Sid LastName: Dave 
+ Courses Registered: [COMP6411, SOEN6411] Status: inactive Status Date: 01-01-2021

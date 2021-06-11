@@ -159,7 +159,7 @@ public class ManagerClientHelper {
             ;
             Pattern patternLastName = Pattern.compile(lastNameRegex);
             Matcher matcherLastName = patternLastName.matcher(strBuffer);
-            if (!matcherLastName.matches()) strBuffer = null;
+            if (checkIfZero(strBuffer)) break;
 
 
             if (!(checkIfSizeOne(strBuffer)&&(matcherLastName.matches()))) strBuffer = null;

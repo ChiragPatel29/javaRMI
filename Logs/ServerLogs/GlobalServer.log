@@ -78,3 +78,13 @@
 11 Jun 2021 14.54.59       serverLVL binded with LVL for lookup
 11 Jun 2021 14.54.59       serverDDO binded with DDO for lookup
 11 Jun 2021 14.54.59       Servers populated with MTL: 8 LVL: 5 DDO: 5 Records respectively
+11 Jun 2021 21.47.06       MTL Server Started
+11 Jun 2021 21.47.06       LVL Server Started
+11 Jun 2021 21.47.06       DDO Server Started
+11 Jun 2021 21.47.06       MTL Registry created at: 3000
+11 Jun 2021 21.47.06       LVL Registry created at: 3001
+11 Jun 2021 21.47.06       DDO Registry created at: 3002
+11 Jun 2021 21.47.06       serverMTL binded with MTL for lookup
+11 Jun 2021 21.47.06       serverLVL binded with LVL for lookup
+11 Jun 2021 21.47.06       serverDDO binded with DDO for lookup
+11 Jun 2021 21.47.06       Servers populated with MTL: 8 LVL: 5 DDO: 5 Records respectively
