@@ -43,7 +43,7 @@ public class ManagerClient {
             System.out.println("---------Please enter command between 1-5 to proceed-----------");
             System.out.println("---Press 0 Anywhere in the system to return to main Menu---");
             System.out.println("1. Create Teacher Record");
-            System.out.println("2 .Create Student Record");
+            System.out.println("2. Create Student Record");
             System.out.println("3. Edit Record");
             System.out.println("4. Get Counts");
             System.out.println("5. Log Out");
