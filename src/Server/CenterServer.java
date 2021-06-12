@@ -13,7 +13,9 @@ import java.net.InetAddress;
 import java.net.SocketTimeoutException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class CenterServer extends UnicastRemoteObject implements CenterServerI {
     HashMap<Character, ArrayList<Record>> records = new HashMap<>();
@@ -27,35 +29,9 @@ public class CenterServer extends UnicastRemoteObject implements CenterServerI {
         this.serverName = serverName;
         this.IPAddress = Configurations.getIP(serverName);
         serverLogger = new ServerLogger(serverName);
-        System.out.println(serverName + " Started on: " + Configurations.getUDPPort(serverName));
         udpServer = new UDPServer(this);
         udpServer.start();
     }
-
-
-    public String checkMissingValuesForTeacher(String firstName, String lastName, String address, String phone, String specialization, String location) {
-        if (firstName.isBlank())
-            return "First Name missing";
-        if (lastName.isBlank())
-            return "First Name missing";
-        if (address.isBlank())
-            return "address missing";
-        if (phone.isBlank()) {
-            return "Phone number missing";
-        } else {
-            try {
-                long phoneNo = Long.parseLong(phone);
-            } catch (NumberFormatException e) {
-                return "Phone Number Invalid";
-            }
-        }
-        if (specialization.isBlank())
-            return "Specialization missing";
-        if (location.isBlank())
-            return "Location missing";
-        return null;
-    }
-
 
     @Override
     public String createTRecord(String firstName, String lastName, String address, String phone, String specialization, String location) throws RemoteException {

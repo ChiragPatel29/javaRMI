@@ -4,11 +4,9 @@ import Utilities.Configurations;
 import Utilities.ServerLogger;
 
 import java.io.IOException;
-import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -18,12 +16,24 @@ public class Server {
     static CenterServer serverMTL, serverLVL, serverDDO;
     static ServerLogger globalServer;
 
-    public static void initializeServers() throws IOException {
+    public static void initializeServers() {
         globalServer = new ServerLogger("GlobalServer");
         servers = new HashMap<>();
-        serverMTL = new CenterServer("MTL");
-        serverLVL = new CenterServer("LVL");
-        serverDDO = new CenterServer("DDO");
+        try {
+            serverMTL = new CenterServer("MTL");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            serverLVL = new CenterServer("LVL");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            serverDDO = new CenterServer("DDO");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         servers.put("MTL", serverMTL);
         servers.put("LVL", serverLVL);
         servers.put("DDO", serverLVL);
@@ -73,31 +83,44 @@ public class Server {
     }
 
 
-    public static void main(String[] args) throws IOException, AlreadyBoundException {
+    public static void main(String[] args) {
         initializeServers();
 
         Registry registryMTL, registryLVL, registryDDO;
 
-        registryMTL = LocateRegistry.createRegistry(Configurations.RMI_PORT_MTL);
-        registryLVL = LocateRegistry.createRegistry(Configurations.RMI_PORT_LVL);
-        registryDDO = LocateRegistry.createRegistry(Configurations.RMI_PORT_DDO);
+        try {
+            registryMTL = LocateRegistry.createRegistry(Configurations.RMI_PORT_MTL);
+            globalServer.addLog("MTL Registry created at: " + Configurations.RMI_PORT_MTL);
 
-        globalServer.addLog("MTL Registry created at: " + Configurations.RMI_PORT_MTL);
-        globalServer.addLog("LVL Registry created at: " + Configurations.RMI_PORT_LVL);
-        globalServer.addLog("DDO Registry created at: " + Configurations.RMI_PORT_DDO);
+            registryMTL.bind("MTL", serverMTL);
+            globalServer.addLog("serverMTL binded with MTL for lookup");
+            System.out.println("MTL Server Started on: " + Configurations.RMI_PORT_MTL);
 
+        } catch (Exception e) {
+            System.out.println("Port No: " + Configurations.RMI_PORT_MTL + " in use Can't Start Server:MTL");
+        }
+        try {
+            registryLVL = LocateRegistry.createRegistry(Configurations.RMI_PORT_LVL);
+            globalServer.addLog("LVL Registry created at: " + Configurations.RMI_PORT_LVL);
 
-        registryMTL.bind("MTL", serverMTL);
-        registryLVL.bind("LVL", serverLVL);
-        registryDDO.bind("DDO", serverDDO);
+            registryLVL.bind("LVL", serverLVL);
+            globalServer.addLog("serverLVL binded with LVL for lookup");
+            System.out.println("LVL Server Started on: " + Configurations.RMI_PORT_LVL);
+        } catch (Exception e) {
+            System.out.println("Port No: " + Configurations.RMI_PORT_LVL + " in use Can't Start Server:LVL");
 
+        }
 
-        globalServer.addLog("serverMTL binded with MTL for lookup");
-        globalServer.addLog("serverLVL binded with LVL for lookup");
-        globalServer.addLog("serverDDO binded with DDO for lookup");
+        try {
+            registryDDO = LocateRegistry.createRegistry(Configurations.RMI_PORT_DDO);
+            globalServer.addLog("DDO Registry created at: " + Configurations.RMI_PORT_DDO);
 
-        populateServers();
-
-
+            registryDDO.bind("DDO", serverDDO);
+            globalServer.addLog("serverDDO binded with DDO for lookup");
+            System.out.println("DDO Server Started on: " + Configurations.RMI_PORT_DDO);
+            populateServers();
+        } catch (Exception e) {
+            System.out.println("Port No: " + Configurations.RMI_PORT_DDO + " in use Can't Start Server:DDO");
+        }
     }
 }

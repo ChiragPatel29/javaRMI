@@ -48,7 +48,7 @@ public class StudentRecord extends Record {
 
     public String printRecord() {
         return "RecordID: " + this.recordID + " First Name: " + this.firstName + " LastName: "
-                + this.lastName + " \n Courses Registered: " + this.coursesRegistered + " Status: " + this.status
+                + this.lastName + " \n \t\t\t\t\t\t   Courses Registered: " + this.coursesRegistered + " Status: " + this.status
                 + " Status Date: " + this.statusDate;
     }
 

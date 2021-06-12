@@ -10,8 +10,9 @@ import java.io.InputStreamReader;
 import java.rmi.NotBoundException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.*;
-
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 import static Client.ManagerClientHelper.*;
 import static Utilities.Configurations.getRegistryPort;
@@ -38,6 +39,7 @@ public class ManagerClient {
 
         CenterServerI centerServerI = (CenterServerI) registry.lookup(managerID.substring(0, 3));
         managerLogger = new ManagerLogger(managerID);
+        managerLogger.addLog("Connection Established successfully with server: " + managerID.substring(0, 3));
         System.out.println("-------------------------------Welcome to DCMS------------------------------------");
         while (true) {
             System.out.println("---------Please enter command between 1-5 to proceed-----------");
@@ -132,7 +134,7 @@ public class ManagerClient {
                 System.out.println("Getting Records");
                 String recordCounts = centerServerI.getRecordCounts();
                 System.out.println(recordCounts);
-                managerLogger.addLog(recordCounts);
+                managerLogger.addLog("Record counts: " + recordCounts);
             } else if (command == 5) {
                 System.out.println("-----------------------Logging out------------------");
                 managerLogger.addLog("Manager with " + managerID + " logged out of the system");

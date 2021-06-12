@@ -4,12 +4,10 @@ package Client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -91,7 +89,7 @@ public class ManagerClientHelper {
         if (statusToCheck.equals("active") || statusToCheck.equals("inactive"))
             return true;
         else {
-            System.out.println("Please enter a valid status");
+            System.out.println("Status not valid");
             return false;
         }
     }
@@ -103,7 +101,7 @@ public class ManagerClientHelper {
                             .withResolverStyle(ResolverStyle.STRICT));
 
         } catch (DateTimeParseException e) {
-            System.out.println("Please enter a valid date");
+            System.out.println("Date not valid");
             return false;
         }
         return true;
@@ -113,7 +111,7 @@ public class ManagerClientHelper {
     public static boolean checkLocation(String location) {
         location = location.toUpperCase();
         if (!(location.equals("MTL") || (location.equals("LVL") || location.equals("DDO")))) {
-            System.out.println("Please Enter location MTL/LVL/DDO");
+            System.out.println("Location invalid Please Enter location MTL/LVL/DDO");
             return false;
         }
         return true;
@@ -146,7 +144,6 @@ public class ManagerClientHelper {
     }
 
 
-    //
     public static String getLastName(String displayMessage) throws IOException {
         BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
         String strBuffer = null;
@@ -156,13 +153,12 @@ public class ManagerClientHelper {
             if (checkIfZero(strBuffer)) break;
 
             String lastNameRegex = "^[\\p{L} .'-]+$";
-            ;
+
             Pattern patternLastName = Pattern.compile(lastNameRegex);
             Matcher matcherLastName = patternLastName.matcher(strBuffer);
-            if (checkIfZero(strBuffer)) break;
 
 
-            if (!(checkIfSizeOne(strBuffer)&&(matcherLastName.matches()))) strBuffer = null;
+            if (!(checkIfSizeOne(strBuffer) && (matcherLastName.matches()))) strBuffer = null;
         }
         return strBuffer;
     }
@@ -176,7 +172,7 @@ public class ManagerClientHelper {
             strBuffer = obj.readLine();
             if (checkIfZero(strBuffer)) break;
             String firstNameRegex = "^[\\p{L} .'-]+$";
-            ;
+
             Pattern patternFirstName = Pattern.compile(firstNameRegex);
             Matcher matcherFirstName = patternFirstName.matcher(strBuffer);
             if (!matcherFirstName.matches()) strBuffer = null;
@@ -200,7 +196,7 @@ public class ManagerClientHelper {
                 try {
                     command = Integer.parseInt(commandStr);
                 } catch (NumberFormatException e) {
-                    System.out.println("Please Enter a numeric command");
+                    System.out.println("Numeric command invalid");
                     continue;
                 }
                 return command;
